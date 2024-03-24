@@ -4,6 +4,8 @@ import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperUser extends HelperBase {
 
@@ -61,5 +63,12 @@ public class HelperUser extends HelperBase {
 
     public boolean isRegistered() {
         return isElementPresent(By.xpath("//button[text()='Sign Out']"));
+    }
+
+    public boolean isNoContactsHereDisplayed() {
+        WebDriverWait wait = new WebDriverWait(wd, 5);
+        return wait.until(ExpectedConditions
+                .textToBePresentInElement(wd.findElement(By
+                        .cssSelector(".contact-page_message__2qafk>h1")),"No Contacts here!"));
     }
 }
