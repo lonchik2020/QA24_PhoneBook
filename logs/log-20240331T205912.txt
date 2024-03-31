@@ -1,0 +1,14 @@
+20:59:15.203 INFO  manager.ApplicationManager - All tests run in Chrome Browser
+20:59:15.671 INFO  manager.ApplicationManager - The link--->https://telranedu.web.app/home
+20:59:15.912 INFO  tests.TestBase - Name of method--->loginSuccess
+20:59:20.966 INFO  tests.TestBase - Start test with name 'loginSuccess' 
+20:59:20.966 INFO  tests.TestBase - Test data--->email:krasleo@gmail.com , password:Cristiano7777$! 
+20:59:23.279 INFO  tests.TestBase - Assert check that button 'Sign out' present
+20:59:23.288 INFO  tests.TestBase - Name of method--->loginSuccess1
+20:59:23.449 INFO  tests.TestBase - Before method finish logout
+20:59:25.242 INFO  tests.TestBase - Name of method--->loginSuccessModel
+20:59:25.375 INFO  tests.TestBase - Before method finish logout
+20:59:26.920 INFO  tests.TestBase - Name of method--->loginUnregisteredUser
+20:59:27.048 INFO  tests.TestBase - Before method finish logout
+20:59:30.871 INFO  tests.TestBase - Name of method--->loginWrongEmail
+20:59:39.882 INFO  tests.TestBase - Name of method--->loginWrongPassword
