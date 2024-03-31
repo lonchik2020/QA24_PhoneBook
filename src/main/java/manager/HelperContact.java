@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class HelperContact extends HelperBase{
+
     public HelperContact(WebDriver wd) {
         super(wd);
     }
@@ -49,4 +50,5 @@ public class HelperContact extends HelperBase{
         }
         return false;
     }
+
 }

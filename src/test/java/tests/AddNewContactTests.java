@@ -56,27 +56,86 @@ public class AddNewContactTests extends TestBase{
 
     @Test
     public void addNewContactWrongName(){
+        int y = (int)(System.currentTimeMillis()/1000)%3600;
+        Contact contact = Contact.builder()
+                .name("")
+                .lastName("Ronaldo")
+                .phone("5555555" + y)
+                .email("cristiano"+y+"@gmail.com")
+                .address("Portugal,Lisbon")
+                .build();
 
+        app.getHelperContact().openContactForm();
+        app.getHelperContact().fillContactForm(contact);
+        app.getHelperContact().saveContact();
+        Assert.assertFalse(app.getHelperContact().isContactAddedByName(contact.getName()));
+        Assert.assertFalse(app.getHelperContact().isContactAddedByPhone(contact.getPhone()));
     }
 
 
     @Test
     public void addNewContactWrongAddress(){
+        int y = (int)(System.currentTimeMillis()/1000)%3600;
+        Contact contact = Contact.builder()
+                .name("Cristiano" + y)
+                .lastName("Ronaldo")
+                .phone("5555555" + y)
+                .email("cristiano"+y+"@gmail.com")
+                .address("")
+                .build();
 
+        app.getHelperContact().openContactForm();
+        app.getHelperContact().fillContactForm(contact);
+        app.getHelperContact().saveContact();
     }
 
     @Test
     public void addNewContactWrongLastName(){
+        int y = (int)(System.currentTimeMillis()/1000)%3600;
+        Contact contact = Contact.builder()
+                .name("Cristiano" + y)
+                .lastName("")
+                .phone("5555555" + y)
+                .email("cristiano"+y+"@gmail.com")
+                .address("Portugal,Lisbon")
+                .build();
 
+        app.getHelperContact().openContactForm();
+        app.getHelperContact().fillContactForm(contact);
+        app.getHelperContact().saveContact();
     }
 
     @Test
     public void addNewContactWrongPhone(){
+        int y = (int)(System.currentTimeMillis()/1000)%3600;
+        Contact contact = Contact.builder()
+                .name("Cristiano" + y)
+                .lastName("Ronaldo")
+                .phone("")
+                .email("cristiano"+y+"@gmail.com")
+                .address("Portugal,Lisbon")
+                .build();
+
+        app.getHelperContact().openContactForm();
+        app.getHelperContact().fillContactForm(contact);
+        app.getHelperContact().saveContact();
 
     }
 
     @Test
     public void addNewContactWrongEmail(){
+        int y = (int)(System.currentTimeMillis()/1000)%3600;
+        Contact contact = Contact.builder()
+                .name("Cristiano" + y)
+                .lastName("Ronaldo")
+                .phone("5555555" + y)
+                .email("")
+                .address("Portugal,Lisbon")
+                .build();
+
+        app.getHelperContact().openContactForm();
+        app.getHelperContact().fillContactForm(contact);
+        app.getHelperContact().saveContact();
 
     }
 
