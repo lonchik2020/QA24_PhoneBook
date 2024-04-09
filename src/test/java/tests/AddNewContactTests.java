@@ -49,6 +49,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(15000);
         app.getHelperContact().saveContact();
         Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact.getName()));
         Assert.assertTrue(app.getHelperContact().isContactAddedByPhone(contact.getPhone()));
@@ -67,6 +68,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(15000);
         app.getHelperContact().saveContact();
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
     }
@@ -85,6 +87,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(15000);
         app.getHelperContact().saveContact();
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
     }
@@ -102,6 +105,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(15000);
         app.getHelperContact().saveContact();
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
     }
@@ -119,6 +123,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(15000);
         app.getHelperContact().saveContact();
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
         Assert.assertTrue(app.getHelperContact().isAlertPresent(" Phone not valid: Phone number must contain only digits! And length min 10, max 15!"));
@@ -137,6 +142,7 @@ public class AddNewContactTests extends TestBase{
 
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(15000);
         app.getHelperContact().saveContact();
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
         Assert.assertTrue(app.getHelperContact().isAlertPresent("Email not valid:"));
