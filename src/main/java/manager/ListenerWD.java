@@ -37,7 +37,7 @@ public class ListenerWD extends AbstractWebDriverEventListener {
     @Override
     public void afterGetText(WebElement element, WebDriver driver, String text) {
         super.afterGetText(element, driver, text);
-        logger.info("got the text successful");
+        logger.info("got the text successfully");
     }
 
     @Override
@@ -91,6 +91,7 @@ public class ListenerWD extends AbstractWebDriverEventListener {
     @Override
     public void beforeNavigateTo(String url, WebDriver driver) {
         super.beforeNavigateTo(url, driver);
+        logger.info("navigate to: " + url);
     }
 
     @Override
