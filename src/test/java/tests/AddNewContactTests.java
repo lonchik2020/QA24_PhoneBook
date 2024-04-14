@@ -1,5 +1,6 @@
 package tests;
 
+import manager.DataProviderContact;
 import models.Contact;
 import models.User;
 import org.testng.Assert;
@@ -16,17 +17,10 @@ public class AddNewContactTests extends TestBase{
         }
     }
 
-    @Test
-    public void addNewContactSuccessAllFields(){
+    @Test(dataProvider = "contactSuccess", dataProviderClass = DataProviderContact.class)
+    public void addNewContactSuccessAllFields(Contact contact){
         int y = (int)(System.currentTimeMillis()/1000)%3600;
-        Contact contact = Contact.builder()
-                .name("Cristiano")
-                .lastName("Ronaldo")
-                .phone("5555555" + y)
-                .email("cristiano"+ y +"@gmail.com")
-                .address("Portugal,Lisbon")
-                .description("all fields")
-                .build();
+        logger.info("Tests run with data: -----> " + contact.toString());
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
         //app.getHelperContact().pause(15000);
@@ -65,7 +59,7 @@ public class AddNewContactTests extends TestBase{
                 .address("Portugal,Lisbon")
                 .description("empty name")
                 .build();
-
+        logger.info("Tests run with data: -----> " + contact.toString());
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
         //app.getHelperContact().pause(15000);
@@ -110,17 +104,9 @@ public class AddNewContactTests extends TestBase{
         Assert.assertTrue(app.getHelperContact().isAddPageStillDisplayed());
     }
 
-    @Test
-    public void addNewContactWrongPhone(){
-        Contact contact = Contact.builder()
-                .name("Cristiano")
-                .lastName("Ronaldo")
-                .phone("123")
-                .email("cristiano@gmail.com")
-                .address("Portugal,Lisbon")
-                .description("wrong phone")
-                .build();
-
+    @Test(dataProvider = "contactWrongPhone", dataProviderClass = DataProviderContact.class)
+    public void addNewContactWrongPhone(Contact contact){
+        logger.info("Tests run with data: -----> " + contact.toString());
         app.getHelperContact().openContactForm();
         app.getHelperContact().fillContactForm(contact);
         //app.getHelperContact().pause(15000);

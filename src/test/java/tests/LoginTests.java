@@ -1,9 +1,12 @@
 package tests;
 
+import manager.DataProviderUser;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+
 
 public class LoginTests extends TestBase{
 
@@ -30,24 +33,25 @@ public class LoginTests extends TestBase{
 
     }
 
-
-    @Test
-    public void loginSuccess(){
+    @Test(dataProvider = "loginData", dataProviderClass = DataProviderUser.class)
+    public void loginSuccess(String email, String password){
         logger.info("Start test with name 'loginSuccess' ");
-        logger.info("Test data--->email:krasleo@gmail.com , password:Cristiano7777$! ");
+        logger.info("Test data--->email: " +email+ " & password: " +password);
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("krasleo@gmail.com", "Cristiano7777$!");
+        //app.getHelperUser().fillLoginRegistrationForm("krasleo@gmail.com", "Cristiano7777$!");
+        app.getHelperUser().fillLoginRegistrationForm(email, password);
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isLogged());
         logger.info("Assert check that button 'Sign out' present");
-
     }
 
-    @Test
-    public void loginSuccessModel(){
-        logger.info("Test data--->email:krasleo@gmail.com , password:Cristiano7777$! ");
+
+
+    @Test(dataProvider = "loginModels", dataProviderClass = DataProviderUser.class)
+    public void loginSuccessModel(User user){
+        logger.info("Test data--->" + user.toString());
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("krasleo@gmail.com", "Cristiano7777$!");
+        app.getHelperUser().fillLoginRegistrationForm(user);
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isLogged());
         logger.info("Assert check that button 'Sign out' present");
