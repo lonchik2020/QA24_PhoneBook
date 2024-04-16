@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition(){
         //if signOut presents ----> logout
         if(app.getHelperUser().isLogged()){
@@ -69,7 +69,7 @@ public class LoginTests extends TestBase{
 
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void loginWrongEmail(){
         logger.info("Test data--->email:krasleogmail.com , password:Cristiano7777$! ");
         app.getHelperUser().openLoginRegistrationForm();

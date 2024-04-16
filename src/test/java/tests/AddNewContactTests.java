@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AddNewContactTests extends TestBase{
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void precondition() {
         if (!app.getHelperUser().isLogged()) {
             app.getHelperUser().login(new User()
@@ -45,7 +45,7 @@ public class AddNewContactTests extends TestBase{
 
 
 
-    @Test
+    @Test(groups = {"smoke", "regress", "retest"})
     public void addNewContactSuccessRequiredFields(){
         int y = (int)(System.currentTimeMillis()/1000)%3600;
         Contact contact = Contact.builder()
